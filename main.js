@@ -4,7 +4,7 @@ $(document).ready(function(e) {
     if (elemento == "") {
       console.log("El elemento no existe");
     } else {
-      $("li:last").after('<li class="list-group-item"><span class="pull-left">'+ elemento + '</span><span class="badge pull-left">0</span><button type="button" class="btn btn-default pull-right glyphicon glyphicon-shopping-cart"></button></li>');
+      $("li:last").after('<li class="list-group-item"><span class="pull-left">'+ elemento + '</span><span class="badge pull-left">0</span><button type="button" class="btn btn-default pull-right glyphicon glyphicon-shopping-cart></button></li>');
       $("#elemento").val('');
     }
     event.preventDefault();
@@ -16,10 +16,20 @@ $(document).ready(function(e) {
     if (contador==0) {
       badge.html(contador + 1);
     } else {
-      badge.html(0);
+      $("#alerta").modal('show');
+
     }
     $(this).toggleClass('active');
   });
+
+  $("acepta").on('click', function() {
+      badge.html(0);
+      event.preventDefault();
+  });
+
+
+
+
   $("ul").on('click', 'button', function() {
     var badge = $(this).siblings('.badge');   // siblings (hermanos)
     var contador = parseInt(badge.html());
