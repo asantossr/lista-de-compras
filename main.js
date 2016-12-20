@@ -4,7 +4,7 @@ $(document).ready(function(e) {
     if (elemento == "") {
       console.log("El elemento no existe");
     } else {
-      $("li:last").after('<li class="list-group-item">' + elemento + '</li>');
+      $("li:last").after('<li class="list-group-item"><span class="pull-left">'+ elemento + '</span><span class="badge pull-left">0</span><button type="button" class="btn btn-default pull-right glyphicon glyphicon-shopping-cart"></button></li>');
       $("#elemento").val('');
     }
     event.preventDefault();
