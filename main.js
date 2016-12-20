@@ -11,11 +11,23 @@ $(document).ready(function(e) {
   });
 
   $("ul").on('click', 'li', function() {
-    $(this).toggleClass('active');
-
-    var badge = $(this).children('.badge');
+    var badge = $(this).children('.badge');   // children (hijos)
     var contador = parseInt(badge.html());
+    if (contador==0) {
+      badge.html(contador + 1);
+    } else {
+      badge.html(0);
+    }
+    $(this).toggleClass('active');
+  });
+  $("ul").on('click', 'button', function() {
+    var badge = $(this).siblings('.badge');   // siblings (hermanos)
+    var contador = parseInt(badge.html());
+    if (contador==0) {
+      $(this).parent('li').addClass('active');
+    }
     badge.html(contador + 1);
-
+    event.preventDefault();
+    return false;
   });
 });
